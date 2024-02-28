@@ -1,0 +1,76 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileCryp</title>
+
+    <!-- icon -->
+    <link rel="icon" href="FileCryp-logos_transparent.png" type="image/png">
+
+    <!-- Include your preferred font and icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #3498db, #8e44ad);
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #3498db;
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            color: #3498db;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(to right, #3498db, #8e44ad);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background: linear-gradient(to right, #2980b9, #9b59b6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <i class="upload-icon fas fa-cloud-upload-alt"></i>
+        <h1>File Upload App</h1>
+        <p>Choose a file to upload:</p>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="files[]" multiple>
+            <br><br>
+            <button class="button" type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>

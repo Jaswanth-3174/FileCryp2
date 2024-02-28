@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Result</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #3498db, #8e44ad);
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #3498db;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(to right, #3498db, #8e44ad);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .button:hover {
+            background: linear-gradient(to right, #2980b9, #9b59b6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Transaction Details</h1>
+        <!-- <p><strong>Transaction Hash:</strong> {{ tx_details.hash }}</p> -->
+        <p><strong>Block Number:</strong> {{ tx_details.blockNumber }}</p>
+        <p><strong>Gas Price:</strong> {{ tx_details.gasPrice }}</p>
+        <p><strong>Gas Used:</strong> {{ tx_details.gas }}</p>
+        <p><strong>From:</strong> {{ tx_details.from }}</p>
+        <p><strong>To:</strong> {{ tx_details.to }}</p>
+        <p><strong>Hash Value:</strong> {{ hash_value }}</p>
+        <p><strong>Decrypted Text:</strong> {{ decrypted_text }}</p>
+        <p><strong>Decompressed Folder:</strong> {{ extracted_folder }}</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+In app.py
+    In the line 162 change the target directory for the retreival files to store
+
+In ipfs_blockchain.py
+    * Change the api key for pinata if neccessary in line 12
+    * In line 77 and 78 change the private key and private address for respective ethereum network address
+
