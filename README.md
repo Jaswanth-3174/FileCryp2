@@ -1,11 +1,11 @@
 # FileCryp
-FileCryp is a decentralized, encrypted file storage and sharing platform that gives users full control and ownership over their sensitive data and documents. 
+FileCryp is a decentralized, encrypted file storage platform that gives users full control and ownership over their sensitive data and documents. 
 
 ![image](https://github.com/Spsanjay10/FileCryp/assets/114681138/c8942c8d-aba8-4a32-97a0-ae407a7c719c)
 
 
 ## Overview
-FileCryp leverages blockchain technology and the InterPlanetary File System (IPFS) to enable secure, tamper-proof file storage and transfer. Uploaded files are encrypted and distributed across the IPFS network. By integrating with MetaMask wallets, FileCryp manages permissions and verifies user identities via cryptographic signatures on chain.
+FileCryp leverages blockchain technology and the InterPlanetary File System (IPFS) to enable secure, tamper-proof file storage . Uploaded files are encrypted and distributed across the IPFS network. By integrating with MetaMask wallets, FileCryp manages permissions and verifies user identities via cryptographic signatures on chain.
 Key features:
 - Decentralized infrastructure based on IPFS
 - Asymmetric encryption (AES-128) of IPFS file hashes before blockchain logging 
