@@ -1,7 +1,7 @@
 # FileCryp
 FileCryp is a decentralized, encrypted file storage platform that gives users full control and ownership over their sensitive data and documents. 
 
-![image](https://github.com/Spsanjay10/FileCryp/assets/114681138/c8942c8d-aba8-4a32-97a0-ae407a7c719c)
+![image]([https://github.com/Jaswanth-3174/FileCryp2/blob/main/i2.png])
 
 
 ## Overview
