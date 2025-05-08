@@ -1,2585 +1,644 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="FileCryp-logos/FileCryp-logos_transparent.png" type="image/x-icon">
-  <!-- Add this script tag to your HTML -->
-  <script src="https://cdn.jsdelivr.net/npm/web3@1.3.6/dist/web3.min.js"></script>
-
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-
-  <meta name="description" content="Revolutionize file storage with blockchain technology and IPFS. Upload and download files securely and efficiently.">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Revolutionize file storage with blockchain technology and IPFS.">
   <title>FileCryp</title>
-  
-  <link rel="stylesheet" href="../static/assets/web/assets/mobirise-icons2/mobirise2.css">
-  <link rel="stylesheet" href="../static/assets/parallax/jarallax.css">
-  <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="../static/assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="../static/assets/socicon/css/styles.css">
-  <link rel="stylesheet" href="../static/assets/animatecss/animate.css">
-  <link rel="stylesheet" href="../static/assets/theme/css/style.css">
-  <link rel="stylesheet" href="../static/css/styles.css">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap"></noscript>
-  <link rel="preload" as="style" href="../static/assets/mobirise/css/additional.css"><link rel="stylesheet" href="../static/assets/mobirise/css/additional.css" type="text/css">
-  
+  <link rel="shortcut icon" href="../static/images/FileCryp-logos_transparent.png" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.3.6/dist/web3.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&family=Poppins:wght@300;400;600&display=swap">
   <style>
+    :root {
+      --violet-gradient: linear-gradient(to right, #3498db, #8e44ad);
+      --primary-color: #004E98;
+      --secondary-color: #3A6EA5;
+      --text-color: #333333;
+      --white: #ffffff;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease-in-out;
+      --border-radius: 8px;
+    }
     body {
-      cursor: url("{{ url_for('static', filename='images/c.png') }}"), auto;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      margin: 0;
+      background: var(--white);
+      color: var(--text-color);
+      overflow-x: hidden;
+      line-height: 1.8;
     }
-  </style>
-  
-
-  <style>:root{ --background: linear-gradient(to right, #3498db, #8e44ad); --dominant-color: #FF6700; --primary-color: #004E98; --secondary-color: #3A6EA5; --success-color: #20AC6B; --danger-color: #AE1E2C; --warning-color: #CC9900; --info-color: #0AA3C2; --background-text: #000000; --dominant-text: #FFFFFF; --primary-text: #FFFFFF; --secondary-text: #FFFFFF; --success-text: #FFFFFF; --danger-text: #FFFFFF; --warning-text: #000000; --info-text: #FFFFFF;}</style>
-</head>
-<body>
-
-
-    <style>
-.cid-u4xsx0csBV  {
-  z-index: 1000;
-  width: 100%;
-  position: relative;
-}
-.cid-u4xsx0csBV  .dropdown-item:before {
-  font-family: Moririse2 !important;
-  content: "\e966";
-  display: inline-block;
-  width: 0;
-  position: absolute;
-  left: 1rem;
-  top: 0.5rem;
-  margin-right: 0.5rem;
-  line-height: 1;
-  font-size: inherit;
-  vertical-align: middle;
-  text-align: center;
-  overflow: hidden;
-  transform: scale(0, 1);
-  transition: all 0.25s ease-in-out;
-}
-@media (max-width: 767px) {
-  .cid-u4xsx0csBV  .navbar-toggler {
-    transform: scale(0.8);
-  }
-}
-.cid-u4xsx0csBV  .navbar-brand {
-  flex-shrink: 0;
-  align-items: center;
-  margin-right: 0;
-  padding: 10px 0;
-  transition: all 0.3s;
-  word-break: break-word;
-  z-index: 1;
-}
-.cid-u4xsx0csBV  .navbar-brand img {
-  max-width: 100%;
-  max-height: 100%;
-}
-.cid-u4xsx0csBV  .navbar-brand .navbar-caption {
-  line-height: inherit !important;
-}
-.cid-u4xsx0csBV  .navbar-brand .navbar-logo a {
-  outline: none;
-}
-.cid-u4xsx0csBV  .navbar-nav {
-  margin: auto;
-  margin-left: 0;
-  margin-left: auto;
-}
-.cid-u4xsx0csBV  .navbar-nav .nav-item {
-  padding: 0 !important;
-  transition: 0.3s all !important;
-}
-.cid-u4xsx0csBV  .navbar-nav .nav-item .nav-link {
-  padding: 16px !important;
-  margin: 0 !important;
-  border-radius: 1rem !important;
-  transition: 0.3s all !important;
-}
-.cid-u4xsx0csBV  .navbar-nav .nav-item .nav-link:hover {
-  background-color: rgba(27, 31, 10, 0.06);
-}
-.cid-u4xsx0csBV  .navbar-nav .open .nav-link::after {
-  transform: rotate(180deg);
-}
-@media (min-width: 992px) {
-  .cid-u4xsx0csBV  .navbar-nav .open .nav-link::before {
-    content: "";
-    width: 100%;
-    height: 20px;
-    top: 100%;
-    background: transparent;
-    position: absolute;
-  }
-}
-.cid-u4xsx0csBV  .navbar-nav .dropdown-item {
-  padding: 12px !important;
-  border-radius: 0.5rem !important;
-  margin: 0 8px !important;
-  transition: 0.3s all !important;
-}
-.cid-u4xsx0csBV  .navbar-nav .dropdown-item:hover {
-  background-color: rgba(27, 31, 10, 0.06);
-}
-@media (min-width: 992px) {
-  .cid-u4xsx0csBV  .navbar-nav {
-    padding-left: 1.5rem;
-  }
-}
-.cid-u4xsx0csBV  .nav-link {
-  width: fit-content;
-  position: relative;
-}
-.cid-u4xsx0csBV  .navbar-logo {
-  margin: 0 !important;
-}
-@media (max-width: 767px) {
-  .cid-u4xsx0csBV  .navbar-logo {
-    padding-left: 0;
-  }
-}
-.cid-u4xsx0csBV  .navbar-caption {
-  padding-left: 1rem;
-  padding-right: 0.5rem;
-}
-@media (max-width: 767px) {
-  .cid-u4xsx0csBV  .nav-dropdown {
-    padding-bottom: 0.5rem;
-  }
-}
-.cid-u4xsx0csBV  .nav-dropdown .link.dropdown-toggle::after {
-  margin-left: 0.5rem;
-  margin-top: 0.2rem;
-  transition: 0.3s all;
-}
-.cid-u4xsx0csBV  .container {
-  display: flex;
-  height: 90px;
-  padding: 0.5rem 0.6rem;
-  flex-wrap: nowrap;
-  /* navr bar color */
-  background: #ffffff !important;  
-  left: 0;
-  right: 0;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: flex-end;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-radius: 100vw;
-  margin-top: 1rem;
-  background-color: #ffffff;
-  box-shadow: 0 30px 60px 0 rgba(27, 31, 10, 0.08);
-}
-@media (max-width: 992px) {
-  .cid-u4xsx0csBV  .container {
-    padding-right: 2rem;
-  }
-}
-@media (max-width: 767px) {
-  .cid-u4xsx0csBV  .container {
-    width: 95%;
-    height: 56px !important;
-    padding-right: 1rem;
-    margin-top: 0rem;
-  }
-}
-.cid-u4xsx0csBV  .iconfont-wrapper {
-  color: #000000 !important;
-  font-size: 1.5rem;
-  padding-right: 0.5rem;
-}
-.cid-u4xsx0csBV  .dropdown-menu {
-  flex-wrap: wrap;
-  flex-direction: column;
-  max-width: 100%;
-  padding: 12px 4px !important;
-  border-radius: 1.5rem;
-  transition: 0.3s all !important;
-  min-width: auto;
-  /* background: #ffffff; */
-  /* background: rgba(255, 255, 255, 0.8) !important; */
-  background:linear-gradient(to right, #3498db, #8e44ad);
-}
-.cid-u4xsx0csBV  .nav-item:focus,
-.cid-u4xsx0csBV  .nav-link:focus {
-  outline: none;
-}
-.cid-u4xsx0csBV  .dropdown .dropdown-menu .dropdown-item {
-  width: auto;
-  transition: all 0.25s ease-in-out;
-}
-.cid-u4xsx0csBV  .dropdown .dropdown-menu .dropdown-item::after {
-  right: 0.5rem;
-}
-.cid-u4xsx0csBV  .dropdown .dropdown-menu .dropdown-item .mbr-iconfont {
-  margin-right: 0.5rem;
-  vertical-align: sub;
-}
-.cid-u4xsx0csBV  .dropdown .dropdown-menu .dropdown-item .mbr-iconfont:before {
-  display: inline-block;
-  transform: scale(1, 1);
-  transition: all 0.25s ease-in-out;
-}
-.cid-u4xsx0csBV  .collapsed .dropdown-menu .dropdown-item:before {
-  display: none;
-}
-.cid-u4xsx0csBV  .collapsed .dropdown .dropdown-menu .dropdown-item {
-  padding: 0.235em 1.5em 0.235em 1.5em !important;
-  transition: none;
-  margin: 0 !important;
-}
-.cid-u4xsx0csBV  .navbar {
-  min-height: 90px;
-  transition: all 0.3s;
-  border-bottom: 1px solid transparent;
-  background: transparent !important;
-  padding: 0 !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-}
-.cid-u4xsx0csBV  .navbar.opened {
-  transition: all 0.3s;
-}
-.cid-u4xsx0csBV  .navbar .dropdown-item {
-  padding: 0.5rem 1.8rem;
-}
-.cid-u4xsx0csBV  .navbar .navbar-logo img {
-  min-width: 6rem;
-  object-fit: cover;
-}
-.cid-u4xsx0csBV  .navbar .navbar-collapse {
-  z-index: 1;
-  justify-content: flex-end;
-}
-.cid-u4xsx0csBV  .navbar.collapsed {
-  justify-content: center;
-}
-.cid-u4xsx0csBV  .navbar.collapsed .nav-item .nav-link::before {
-  display: none;
-}
-.cid-u4xsx0csBV  .navbar.collapsed.opened .dropdown-menu {
-  top: 0;
-}
-@media (min-width: 992px) {
-  .cid-u4xsx0csBV  .navbar.collapsed.opened:not(.navbar-short) .navbar-collapse {
-    max-height: calc(98.5vh - 3rem);
-  }
-}
-.cid-u4xsx0csBV  .navbar.collapsed .dropdown-menu .dropdown-submenu {
-  left: 0 !important;
-}
-.cid-u4xsx0csBV  .navbar.collapsed .dropdown-menu .dropdown-item:after {
-  right: auto;
-}
-.cid-u4xsx0csBV  .navbar.collapsed .dropdown-menu .dropdown-toggle[data-toggle="dropdown-submenu"]:after {
-  margin-left: 0.5rem;
-  margin-top: 0.2rem;
-  border-top: 0.35em solid;
-  border-right: 0.35em solid transparent;
-  border-left: 0.35em solid transparent;
-  border-bottom: 0;
-  top: 41%;
-}
-.cid-u4xsx0csBV  .navbar.collapsed ul.navbar-nav li {
-  margin: auto;
-}
-.cid-u4xsx0csBV  .navbar.collapsed .dropdown-menu .dropdown-item {
-  padding: 0.25rem 1.5rem;
-  text-align: center;
-}
-.cid-u4xsx0csBV  .navbar.collapsed .icons-menu {
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-@media (max-width: 767px) {
-  .cid-u4xsx0csBV  .navbar {
-    min-height: 72px;
-  }
-  .cid-u4xsx0csBV  .navbar .navbar-logo img {
-    height: 2.5rem !important;
-    min-width: 2.5rem !important;
-  }
-}
-@media (max-width: 991px) {
-  .cid-u4xsx0csBV  .navbar .nav-item .nav-link::before {
-    display: none;
-  }
-  .cid-u4xsx0csBV  .navbar.opened .dropdown-menu {
-    top: 0;
-  }
-  .cid-u4xsx0csBV  .navbar .dropdown-menu .dropdown-submenu {
-    left: 0 !important;
-  }
-  .cid-u4xsx0csBV  .navbar .dropdown-menu .dropdown-item:after {
-    right: auto;
-  }
-  .cid-u4xsx0csBV  .navbar .dropdown-menu .dropdown-toggle[data-toggle="dropdown-submenu"]:after {
-    margin-left: 0.5rem;
-    margin-top: 0.2rem;
-    border-top: 0.35em solid;
-    border-right: 0.35em solid transparent;
-    border-left: 0.35em solid transparent;
-    border-bottom: 0;
-    top: 40%;
-  }
-  .cid-u4xsx0csBV  .navbar .dropdown-menu .dropdown-item {
-    padding: 0.25rem 1.5rem !important;
-    text-align: center;
-  }
-  .cid-u4xsx0csBV  .navbar .navbar-brand {
-    flex-shrink: initial;
-    flex-basis: auto;
-    word-break: break-word;
-    padding-right: 10px;
-  }
-  .cid-u4xsx0csBV  .navbar .navbar-toggler {
-    flex-basis: auto;
-  }
-  .cid-u4xsx0csBV  .navbar .icons-menu {
-    padding-left: 0;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-}
-.cid-u4xsx0csBV  .navbar.navbar-short .navbar-logo img {
-  height: 2rem;
-}
-.cid-u4xsx0csBV  .dropdown-item.active,
-.cid-u4xsx0csBV  .dropdown-item:active {
-  background-color: transparent;
-}
-.cid-u4xsx0csBV  .navbar-expand-lg .navbar-nav .nav-link {
-  padding: 0;
-}
-.cid-u4xsx0csBV  .nav-dropdown .link.dropdown-toggle {
-  margin-right: 1.667em;
-}
-.cid-u4xsx0csBV  .nav-dropdown .link.dropdown-toggle[aria-expanded="true"] {
-  margin-right: 0;
-  padding: 0.667em 1.667em;
-}
-.cid-u4xsx0csBV  .navbar.navbar-expand-lg .dropdown .dropdown-menu {
-  background: #ffffff;
-}
-.cid-u4xsx0csBV  .navbar.navbar-expand-lg .dropdown .dropdown-menu .dropdown-submenu {
-  margin: 0;
-  left: 105%;
-  transform: none;
-  top: -12px;
-}
-.cid-u4xsx0csBV  .navbar .dropdown.open > .dropdown-menu {
-  display: flex;
-}
-.cid-u4xsx0csBV  ul.navbar-nav {
-  flex-wrap: wrap;
-}
-.cid-u4xsx0csBV  .navbar-buttons {
-  text-align: center;
-  min-width: 140px;
-}
-@media (max-width: 992px) {
-  .cid-u4xsx0csBV  .navbar-buttons {
-    text-align: left;
-  }
-}
-.cid-u4xsx0csBV  button.navbar-toggler {
-  outline: none;
-  width: 31px;
-  height: 20px;
-  cursor: pointer;
-  transition: all 0.2s;
-  position: relative;
-  align-self: center;
-}
-.cid-u4xsx0csBV  button.navbar-toggler .hamburger span {
-  position: absolute;
-  right: 0;
-  width: 30px;
-  height: 2px;
-  border-right: 5px;
-  background-color: #000000;
-}
-.cid-u4xsx0csBV  button.navbar-toggler .hamburger span:nth-child(1) {
-  top: 0;
-  transition: all 0.2s;
-}
-.cid-u4xsx0csBV  button.navbar-toggler .hamburger span:nth-child(2) {
-  top: 8px;
-  transition: all 0.15s;
-}
-.cid-u4xsx0csBV  button.navbar-toggler .hamburger span:nth-child(3) {
-  top: 8px;
-  transition: all 0.15s;
-}
-.cid-u4xsx0csBV  button.navbar-toggler .hamburger span:nth-child(4) {
-  top: 16px;
-  transition: all 0.2s;
-}
-.cid-u4xsx0csBV  nav.opened .hamburger span:nth-child(1) {
-  top: 8px;
-  width: 0;
-  opacity: 0;
-  right: 50%;
-  transition: all 0.2s;
-}
-.cid-u4xsx0csBV  nav.opened .hamburger span:nth-child(2) {
-  transform: rotate(45deg);
-  transition: all 0.25s;
-}
-.cid-u4xsx0csBV  nav.opened .hamburger span:nth-child(3) {
-  transform: rotate(-45deg);
-  transition: all 0.25s;
-}
-.cid-u4xsx0csBV  nav.opened .hamburger span:nth-child(4) {
-  top: 8px;
-  width: 0;
-  opacity: 0;
-  right: 50%;
-  transition: all 0.2s;
-}
-.cid-u4xsx0csBV  .navbar-dropdown {
-  padding: 0 1rem;
-}
-.cid-u4xsx0csBV  a.nav-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.cid-u4xsx0csBV  .icons-menu {
-  flex-wrap: nowrap;
-  display: flex;
-  justify-content: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.3rem;
-  text-align: center;
-}
-@media (max-width: 992px) {
-  .cid-u4xsx0csBV  .icons-menu {
-    justify-content: flex-start;
-    margin-bottom: 0.5rem;
-  }
-}
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .cid-u4xsx0csBV  .navbar {
-    height: 70px;
-  }
-  .cid-u4xsx0csBV  .navbar.opened {
-    height: auto;
-  }
-  .cid-u4xsx0csBV  .nav-item .nav-link:hover::before {
-    width: 175%;
-    max-width: calc(100% + 2rem);
-    left: -1rem;
-  }
-}
-.cid-u4xsx0csBV  .navbar .dropdown > .dropdown-menu {
-  display: none;
-  width: max-content;
-  max-width: 500px !important;
-  transform: translateX(-50%);
-  top: calc(100% + 20px);
-  left: 50%;
-}
-.cid-u4xsx0csBV  .navbar .dropdown > .dropdown-menu .dropdown-item {
-  line-height: 1 !important;
-}
-.cid-u4xsx0csBV  .navbar .dropdown > .dropdown-menu .dropdown .dropdown-item {
-  align-items: center;
-  display: flex;
-  height: max-content !important;
-  min-height: max-content !important;
-}
-.cid-u4xsx0csBV  .navbar .dropdown > .dropdown-menu .dropdown .dropdown-item::after {
-  display: inline-block;
-  position: static;
-  margin-left: 0.5rem;
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  transition: 0.3s all;
-  transform: rotate(-90deg);
-}
-.cid-u4xsx0csBV  .navbar .dropdown > .dropdown-menu .dropdown.open .dropdown-item::after {
-  transform: rotate(0deg);
-}
-.cid-u4xsx0csBV  .mbr-section-btn {
-  margin: -0.6rem -0.6rem;
-}
-.cid-u4xsx0csBV  .navbar-toggler {
-  margin-left: 12px;
-  margin-right: 8px;
-  order: 1000;
-}
-@media (max-width: 991px) {
-  .cid-u4xsx0csBV  .navbar-brand {
-    margin-right: auto;
-  }
-  .cid-u4xsx0csBV  .navbar-collapse {
-    z-index: -1 !important;
-    position: absolute;
-    top: 110%;
-    left: 0;
-    width: 100%;
-    padding: 1rem;
-    border-radius: 1.5rem;
-    background: #ffffff;
-    opacity: 1;
-    border-color: rgba(255, 255, 255, 0.8) !important;
-    background: rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter: blur(8px);
-  }
-  .cid-u4xsx0csBV  .navbar-nav .nav-item .nav-link::after {
-    margin-left: 10px;
-  }
-  .cid-u4xsx0csBV  .navbar-nav .dropdown-item:hover {
-    background-color: rgba(27, 31, 10, 0.06);
-  }
-  .cid-u4xsx0csBV  .navbar .dropdown > .dropdown-menu {
-    max-width: 100% !important;
-    transform: translateX(0);
-    top: 10px;
-    left: 0;
-    padding: 8px !important;
-    border-radius: 1rem;
-    background-color: rgba(27, 31, 10, 0.04) !important;
-  }
-  .cid-u4xsx0csBV  .navbar .dropdown > .dropdown-menu .dropdown-item {
-    padding: 8px !important;
-    line-height: 1 !important;
-    margin-bottom: 4px !important;
-  }
-  .cid-u4xsx0csBV  .navbar .dropdown > .dropdown-menu .dropdown .dropdown-item {
-    align-items: center;
-    display: flex;
-    height: max-content !important;
-    min-height: max-content !important;
-  }
-  .cid-u4xsx0csBV  .navbar .dropdown > .dropdown-menu .dropdown .dropdown-item::after {
-    display: inline-block;
-    position: static;
-    margin-left: 0.5rem;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    transition: 0.3s all;
-    transform: rotate(0deg);
-  }
-  .cid-u4xsx0csBV  .navbar .dropdown > .dropdown-menu .dropdown.open .dropdown-item::after {
-    transform: rotate(180deg);
-  }
-  .cid-u4xsx0csBV  .navbar .dropdown > .dropdown-menu .dropdown-submenu {
-    position: static;
-    width: 100%;
-    max-width: 100% !important;
-    transform: translateX(0) !important;
-    top: 0;
-    left: 0;
-    padding: 8px !important;
-    border-radius: 1rem;
-    background-color: rgba(27, 31, 10, 0.04) !important;
-  }
-  .cid-u4xsx0csBV  .navbar .dropdown.open > .dropdown-menu {
-    display: flex !important;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-@media (max-width: 575px) {
-  .cid-u4xsx0csBV  .navbar-collapse {
-    padding: 1rem;
-  }
-}
-
-.rad{
-
-  background-color: #ddd;
-  border: none;
-  color: black;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-
-  cursor: pointer;
-  border-radius: 16px;
-}
-
-</style>
-
-<section class="menu menu2 cid-u4xsx0csBV" once="menu" id="menu-5-u4xsx0csBV">
-  <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-    <div class="container">
-      <div class="navbar-brand">
-        <span class="navbar-logo">
-					<a href="#">
-						<img src="{{ url_for('static', filename='images/FileCryp-logos.jpeg') }}" style="height: 4.3rem;">
-					</a>
-				</span>
-				<span class="navbar-caption-wrap">
-          <a class="navbar-caption text-black display-4" href="#">FileCryp</a>
-        </span>
-      </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
-        data-bs-toggle="collapse" data-target="#navbarSupportedContent"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-          <!-- <li class="nav-item">
-            <a class="nav-link link text-black display-4" href="#">Upload</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link link text-black display-4" href="#"
-              aria-expanded="false">Download</a>
-          </li> -->
-          <li class="nav-item">
-            <a class="nav-link link text-black display-4" href="#about-us-7-u4xsx0chin">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link link text-black display-4" href="#features-51-u4xsx0d6IA">Key Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link link text-black display-4" href="#faq-1-u4xsx0d6LN">FAQs</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link link text-black display-4" href="#contacts-1-u4xsx0g9K0">Contact</a>
-          </li>
-        </ul>
-        <button class="btn btn-primary display-7 btn-pill rad" id="metamaskLoginBtn">
-          Get Started
-      </button>
-      </div>
-    </div>
-    <script>
-      document.getElementById('metamaskLoginBtn').addEventListener('click', async function() {
-          if (typeof window.ethereum !== 'undefined') {
-              try {
-                  // Request access to the user's MetaMask account
-                  await window.ethereum.request({ method: 'eth_requestAccounts' });
-                  
-                  // Get the selected account address
-                  const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-                  const selectedAccount = accounts[0];
-  
-                  // Log the selected account to the console
-                  console.log('MetaMask login successful. Selected account:', selectedAccount);
-  
-                  // Redirect to das.html after successful login
-                  window.location.href = '/upload_page';
-
-
-              } catch (error) {
-                  console.error('MetaMask login error:', error.message);
-              }
-          } else {
-              // MetaMask is not installed, prompt the user to install it
-              alert('Please install MetaMask to use this feature.');
-          }
-      });
-  </script>
-  </nav>
-</section>
-
-    <style>
-  .cid-u4xsx0c0tU {
-    display: flex;
-    background-image: url("../static/assets/images/blockchain-world.jpg");
-  }
-  .cid-u4xsx0c0tU .mbr-overlay {
-    background-color: #000000;
-    opacity: 0.5;
-  }
-  @media (min-width: 768px) {
-    .cid-u4xsx0c0tU {
-      align-items: flex-end;
+    h1, h2, h3, h5 {
+      font-family: 'Inter Tight', sans-serif;
+      color: var(--text-color);
     }
-    .cid-u4xsx0c0tU .row {
+    .navbar {
+      display: flex;
       justify-content: center;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: transparent;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: var(--transition);
     }
-    .cid-u4xsx0c0tU .content-wrap {
-      padding: 1rem 3rem;
+    .navbar.scrolled {
+      background: var(--white);
+      box-shadow: var(--shadow);
     }
-  }
-  @media (max-width: 991px) and (min-width: 768px) {
-    .cid-u4xsx0c0tU .content-wrap {
-      min-width: 50%;
-    }
-  }
-  @media (max-width: 767px) {
-    .cid-u4xsx0c0tU {
-      -webkit-align-items: center;
-      align-items: flex-end;
-    }
-    .cid-u4xsx0c0tU .mbr-row {
-      -webkit-justify-content: center;
-      justify-content: center;
-    }
-    .cid-u4xsx0c0tU .content-wrap {
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
       width: 100%;
     }
-  }
-  .cid-u4xsx0c0tU .mbr-section-title,
-  .cid-u4xsx0c0tU .mbr-section-subtitle {
-    text-align: center;
-  }
-  .cid-u4xsx0c0tU .mbr-text,
-  .cid-u4xsx0c0tU .mbr-section-btn {
-    text-align: center;
-  }
-</style>
-<section class="header16 cid-u4xsx0c0tU mbr-fullscreen mbr-parallax-background" id="hero-17-u4xsx0c0tU">
-  <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(0, 0, 0);"></div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="content-wrap col-12 col-md-10">
-        <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1">
-          <strong>FileCryp</strong>
-        </h1>
-        <p class="mbr-fonts-style mbr-text mbr-white mb-4 display-7">Unleash the Power of Blockchain-Based File Storage with IPFS Technology</p>
-        <div class="mbr-section-btn"><a class="btn btn-white-outline display-7" href="#">Join Now</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-    <style>
-.cid-u4xsx0chin {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: transparent;
-}
-.cid-u4xsx0chin .mbr-fallback-image.disabled {
-  display: none;
-}
-.cid-u4xsx0chin .mbr-fallback-image {
-  display: block;
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-}
-.bg2{
-  background: linear-gradient(to right, #8e44ad,  #3498db);
-}
-.cid-u4xsx0chin .card-wrapper {
-  background: #ffffff;
-}
-@media (max-width: 767px) {
-  .cid-u4xsx0chin .card-wrapper {
-    padding: 2rem 1.5rem;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  .cid-u4xsx0chin .card-wrapper {
-    padding: 2.25rem;
-  }
-}
-@media (min-width: 992px) {
-  .cid-u4xsx0chin .card-wrapper {
-    padding: 4rem;
-  }
-}
-.cid-u4xsx0chin .mbr-text,
-.cid-u4xsx0chin .mbr-section-btn {
-  color: #000000;
-  text-align: left;
-}
-.cid-u4xsx0chin .card-title,
-.cid-u4xsx0chin .card-box {
-  text-align: left;
-  color: #000000;
-}
-</style>
-<section class="article07 cid-u4xsx0chin" id="about-us-7-u4xsx0chin">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="card col-md-12 col-lg-10">
-        <div class="card-wrapper">
-          <h3 class="card-title mbr-fonts-style mbr-white mt-3 mb-4 display-2">
-            <strong>Empower Your Files</strong>
-          </h3>
-          <div class="row card-box align-left">
-            <div class="item features-without-image col-12">
-              <div class="item-wrapper">
-                <p class="mbr-text mbr-fonts-style display-7">
-                Welcome to FileCryp, where your files are safeguarded by the revolutionary blockchain technology of IPFS.
-                </p>
-              </div>
-            </div>
-            <div class="item features-without-image col-12">
-              <div class="item-wrapper">
-                <p class="mbr-text mbr-fonts-style display-7">
-                  Experience lightning-fast file uploads and downloads with unparalleled security and decentralization.
-                </p>
-              </div>
-            </div>
-            <div class="item features-without-image col-12">
-              <div class="item-wrapper">
-                <p class="mbr-text mbr-fonts-style display-7">
-                  Join us today and revolutionize the way you store and access your data!
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-    <style>
-.cid-u4xsx0d6IA {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: transparent;
-}
-.cid-u4xsx0d6IA .mbr-fallback-image.disabled {
-  display: none;
-}
-.cid-u4xsx0d6IA .mbr-fallback-image {
-  display: block;
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-}
-.cid-u4xsx0d6IA .mbr-text {
-  color: #000000;
-}
-.cid-u4xsx0d6IA .mbr-section-subtitle {
-  color: #ffffff;
-  text-align: left;
-}
-.cid-u4xsx0d6IA .item-wrapper {
-  background: #ffffff;
-  padding: 2.25rem 2.25rem 1rem 2.25rem;
-}
-@media (max-width: 767px) {
-  .cid-u4xsx0d6IA .item-wrapper {
-    padding: 2rem 1.5rem 0.5rem 1.5rem;
-  }
-}
-@media (min-width: 992px) and (max-width: 1200px) {
-  .cid-u4xsx0d6IA .item-wrapper {
-    padding: 2rem 1.5rem 0.5rem 1.5rem;
-  }
-}
-.cid-u4xsx0d6IA .main-button {
-  margin-bottom: 2rem;
-}
-@media (max-width: 767px) {
-  .cid-u4xsx0d6IA .main-button {
-    margin-bottom: 2rem;
-  }
-}
-.cid-u4xsx0d6IA .counter-container ul {
-  margin: 0;
-  padding-left: 2.25rem;
-  list-style: none;
-}
-.cid-u4xsx0d6IA .counter-container ul li {
-  position: relative;
-  list-style: none;
-  margin-bottom: 2rem;
-}
-.cid-u4xsx0d6IA .counter-container ul li:before {
-  position: absolute;
-  left: -1.5em;
-  content: "";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--secondary-color, #9fe870);
-  background-color: var(--secondary-color, #9fe870);
-  width: 0.5em;
-  height: 0.5em;
-  top: 0.4em;
-  border-radius: 50%;
-}
-.cid-u4xsx0d6IA .mbr-text UL {
-  text-align: left;
-}
-.cid-u4xsx0d6IA .mbr-section-subtitle,
-.cid-u4xsx0d6IA .main-button{
-  color: #ffffff;
-}
-.txt{
-  color: #FFFFFF;
-}
-.bg{
-  /* background-color: #eae6e6; */
-  background: linear-gradient(to right, #3498db, #8e44ad)
-}
-
-.bg2{
-  background: linear-gradient(to right, #8e44ad,  #3498db);
-}
-</style>
-<section class="article021 cid-u4xsx0d6IA bg" id="features-51-u4xsx0d6IA">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-4">
-                <div class="col-12 col-md-12">
-                    <h5 class="mbr-section-title mbr-fonts-style mt-0 mb-4 display-2 txt">
-                        <strong>Key Features</strong>
-                    </h5>
-                    <h6 class="mbr-section-subtitle mbr-fonts-style mt-0 mb-4 display-7">
-                      Discover the Unmatched Advantages of FileCryp</h6>                    
-                </div>
-            </div>
-
-            <div class="col-lg-8 side-features">
-                <div class="item-wrapper align-left">
-                    <div class="counter-container mbr-text mbr-fonts-style display-7">
-                        <ul>
-                          <li>Unbreakable Security: Blockchain protects your data from unauthorized access and tampering.</li>
-                          <li>Fast & Efficient: IPFS integration delivers rapid data retrieval for all your files.</li>
-                          <li>Decentralized Storage: Say goodbye to centralized servers and embrace the secure and distributed storage of IPFS.</li>
-                          <li>Privacy Guaranteed: Advanced encryption keeps your sensitive information safe & private.</li>
-                          <li>Space-Saving Compression: Store more data with efficient compression algorithms.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-
-
-<style>
-  .cid-u4xsx0crNa {
-    overflow: hidden;
-    background-image: url("../static/assets/images/blockchain.jpg");
-  }
-  </style>
-  <section class="image02 cid-u4xsx0crNa mbr-fullscreen mbr-parallax-background" id="image-13-u4xsx0crNa">
-      <div class="container">
-          <div class="row"></div>
-      </div>
-  </section>
-
-
-
-
-
-
-
-
-
-<style>
-  .cid-u4xsx0d6LN {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    background-color: transparent;
-  }
-  .cid-u4xsx0d6LN .mbr-iconfont {
-    font-size: 1.2rem !important;
-    font-family: 'Moririse2' !important;
-    color: white;
-    transition: all 0.3s;
-    transform: rotate(180deg);
-  }
-  .cid-u4xsx0d6LN .panel-group {
-    border: none;
-  }
-  .cid-u4xsx0d6LN .card-header {
-    padding: 1.2rem 0.5rem;
-  }
-  @media (max-width: 767px) {
-    .cid-u4xsx0d6LN .card-header {
-      padding: 1rem 0rem;
+    .navbar-brand img {
+      height: 2.5rem;
+      transition: var(--transition);
     }
-  }
-  .cid-u4xsx0d6LN .panel-body {
-    padding: 0 0.5rem;
-    padding-bottom: 1rem;
-  }
-  @media (max-width: 767px) {
-    .cid-u4xsx0d6LN .panel-body {
-      padding: 0rem;
-      padding-bottom: 1rem;
+    .navbar-brand img:hover {
+      transform: scale(1.05);
     }
-  }
-  .cid-u4xsx0d6LN .img-col {
-    padding: 0;
-  }
-  .cid-u4xsx0d6LN .img-item {
-    height: 100%;
-  }
-  .cid-u4xsx0d6LN img {
-    height: 100%;
-    object-fit: cover;
-  }
-  .cid-u4xsx0d6LN .collapsed span {
-    transform: rotate(0deg);
-  }
-  .cid-u4xsx0d6LN .panel-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .cid-u4xsx0d6LN p {
-    margin-bottom: 0.3rem;
-  }
-  .cid-u4xsx0d6LN .card .card-header {
-    background-color: transparent;
-    margin-bottom: 0;
-    border: 0;
-    border-radius: 2rem;
-  }
-  .cid-u4xsx0d6LN .card {
-    background: #ffffff;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-  }
-  @media (max-width: 767px) {
-    .cid-u4xsx0d6LN .card {
-      padding: 1.5rem;
-    }
-  }
-  .cid-u4xsx0d6LN .panel-text {
-    color: #000000;
-  }
-  .cid-u4xsx0d6LN .mbr-section-title {
-    text-align: center;
-    color: #000000;
-  }
-  .cid-u4xsx0d6LN .mbr-section-subtitle {
-    color: #000000;
-    text-align: center;
-  }
-  .cid-u4xsx0d6LN .panel-title-edit,
-  .cid-u4xsx0d6LN .mbr-iconfont {
-    color: #000000;
-  }
-</style>
-<section class="list1 cid-u4xsx0d6LN bg2" id="faq-1-u4xsx0d6LN">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-12 col-md-12 col-lg-10 m-auto">
-				<div class="content">
-					<div class="mbr-section-head align-left mb-5">
-						<h3 class="mbr-section-title mb-2 mbr-fonts-style display-2">
-							<strong>FAQs</strong>
-						</h3>
-					</div>
-					<div id="bootstrap-accordion_0" class="panel-group accordionStyles accordion" role="tablist" aria-multiselectable="true">
-						<div class="card mb-3">
-							<div class="card-header" role="tab" id="headingOne">
-								<a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse1_0" aria-expanded="false" aria-controls="collapse1">
-									<h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-5">
-										How does FileCryp ensure file security?
-									</h6>
-									<span class="sign mbr-iconfont mobi-mbri-arrow-down"></span>
-								</a>
-							</div>
-							<div id="collapse1_0" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_0">
-								<div class="panel-body">
-									<p class="mbr-fonts-style panel-text display-7">
-										FileCryp employs advanced encryption algorithms and decentralized storage on the blockchain to guarantee the utmost security for your files.
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="card mb-3">
-							<div class="card-header" role="tab" id="headingOne">
-								<a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse2_0" aria-expanded="false" aria-controls="collapse2">
-									<h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-5">
-										What is IPFS, and why is it used in this application?
-									</h6>
-									<span class="sign mbr-iconfont mobi-mbri-arrow-down"></span>
-								</a>
-							</div>
-							<div id="collapse2_0" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_0">
-								<div class="panel-body">
-									<p class="mbr-fonts-style panel-text display-7">
-										IPFS, or InterPlanetary File System, is a decentralized protocol for storing and sharing hypermedia. It ensures that files are distributed and can be retrieved quickly, making it an ideal solution for secure and efficient file storage.
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="card mb-3">
-							<div class="card-header" role="tab" id="headingOne">
-								<a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse3_0" aria-expanded="false" aria-controls="collapse3">
-									<h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-5">
-										Can I access my compressed and encrypted files later?
-									</h6>
-									<span class="sign mbr-iconfont mobi-mbri-arrow-down"></span>
-								</a>
-							</div>
-							<div id="collapse3_0" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_0">
-								<div class="panel-body">
-									<p class="mbr-fonts-style panel-text display-7">
-										Absolutely. Users can retrieve their files by decrypting the stored hash using the provided keys. The decentralized nature of IPFS ensures that files are accessible as long as the network is available.
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="card mb-3">
-							<div class="card-header" role="tab" id="headingOne">
-								<a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse4_0" aria-expanded="false" aria-controls="collapse4">
-									<h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-5">
-										What type of files can be compressed and uploaded?
-									</h6>
-									<span class="sign mbr-iconfont mobi-mbri-arrow-down"></span>
-								</a>
-							</div>
-							<div id="collapse4_0" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_0">
-								<div class="panel-body">
-									<p class="mbr-fonts-style panel-text display-7">
-										The web application supports the compression and uploading of various file types, including but not limited to images, documents, and archives.
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="card mb-3">
-							<div class="card-header" role="tab" id="headingOne">
-								<a role="button" class="panel-title collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-core="" href="#collapse5_0" aria-expanded="false" aria-controls="collapse5">
-									<h6 class="panel-title-edit mbr-semibold mbr-fonts-style mb-0 display-5">
-										How does the file compression feature work?
-									</h6>
-									<span class="sign mbr-iconfont mobi-mbri-arrow-down"></span>
-								</a>
-							</div>
-							<div id="collapse5_0" class="panel-collapse noScroll collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" data-bs-parent="#bootstrap-accordion_0">
-								<div class="panel-body">
-									<p class="mbr-fonts-style panel-text display-7">
-										The file compression feature utilizes advanced algorithms to reduce the size of your files, making them more efficient to store and transfer.
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-    <style>
-  .cid-u4xsx0d8Zg {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-    background-color: #ffffff;
-  }
-  .cid-u4xsx0d8Zg .mbr-fallback-image.disabled {
-    display: none;
-  }
-  .cid-u4xsx0d8Zg .mbr-fallback-image {
-    display: block;
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-  }
-  .cid-u4xsx0d8Zg .row {
-    flex-direction: row-reverse;
-  }
-</style>
-<section class="image3 cid-u4xsx0d8Zg" id="image-2-u4xsx0d8Zg">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-10">
-        <h4 class="mbr-description mbr-fonts-style mb-3 align-center display-5">
-          <strong>Secure File Upload</strong>
-        </h4>
-        <p class="mbr-description mbr-fonts-style mb-4 align-center display-7">
-          Experience the Future of File Storage on the Blockchain
-        </p>
-        <div class="image-wrapper">
-          <img class="w-100" src="../static/assets/images/secure.jpg">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-    <style>
-  .cid-u4xsx0d5az {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-    background-color: #ffffff;
-  }
-  .cid-u4xsx0d5az .mbr-fallback-image.disabled {
-    display: none;
-  }
-  .cid-u4xsx0d5az .mbr-fallback-image {
-    display: block;
-    background-size: cover;
-    background-position: center center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-  }
-  .cid-u4xsx0d5az .row {
-    flex-direction: row-reverse;
-  }
-  .image3{
-    height: 10%;
-  }
-</style>
-<section class="image3 cid-u4xsx0d5az" id="image-3-u4xsx0d5az">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-10">
-        <h4 class="mbr-description mbr-fonts-style mb-3 align-center display-5">
-          <strong>Effortless Downloads</strong>
-        </h4>
-        <div class="image-wrapper">
-          <img class="w-100" src="../static/assets/images/photo-1639762681057-408e52192e55.jpeg">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-    <style>
-.cid-u4xsx0dQRp {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  background-color: #ffffff;
-}
-.cid-u4xsx0dQRp .item-wrapper img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50% !important;
-}
-.cid-u4xsx0dQRp .item-wrapper {
-  margin-bottom: 2rem;
-}
-.cid-u4xsx0dQRp .card-title,
-.cid-u4xsx0dQRp .iconfont-wrapper {
-  color: #ffffff;
-}
-.cid-u4xsx0dQRp .card-text {
-  color: #ffffff;
-  text-align: center;
-}
-.cid-u4xsx0dQRp .content-head {
-  max-width: 800px;
-}
-.cid-u4xsx0dQRp .mbr-section-title {
-  color: #ffffff;
-}
-.cid-u4xsx0dQRp .card-title,
-.cid-u4xsx0dQRp .img-wrapper {
-  text-align: center;
-}
-.cid-u4xsx0dQRp .img-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-</style>
-<section class="people05 cid-u4xsx0dQRp bg2" id="testimonials-5-u4xsx0dQRp">
-	<div class="container">
-		<div class="row mb-5 justify-content-center">
-			<div class="col-12 mb-0 content-head">
-				<h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-					<!-- <strong>Rave</strong> -->
-          <strong>Testimonals</strong>
-				</h3>
-			</div>
-		</div>
-		<div class="row">
-			<div class="item features-without-image col-12 col-md-6 col-lg-4 active">
-				<div class="item-wrapper">
-					<div class="card-box align-left">
-						<p class="card-text mbr-fonts-style display-7">
-							Mind-blowing! Never thought file storage could be this exciting.
-						</p>
-						<div class="img-wrapper mt-4 mb-3">
-							<img src="../static/assets/testi/sri.jpg" data-slide-to="0" data-bs-slide-to="0">
-						</div>
-						<h5 class="card-title mbr-fonts-style display-7">
-							<strong>Sri V</strong>
-						</h5>
-					</div>
-				</div>
-			</div>
-			<div class="item features-without-image col-12 col-md-6 col-lg-4">
-				<div class="item-wrapper">
-					<div class="card-box align-left">
-						<p class="card-text mbr-fonts-style display-7">
-							Revolutionary technology! My files has felt safer. Thankyou!
-						</p>
-						<div class="img-wrapper mt-4 mb-3">
-							<img src="../static/assets/testi/loki.JPG" data-slide-to="1" data-bs-slide-to="1">
-						</div>
-						<h5 class="card-title mbr-fonts-style display-7">
-							<strong>Lokesh K</strong>
-						</h5>
-					</div>
-				</div>
-			</div>
-			<div class="item features-without-image col-12 col-md-6 col-lg-4">
-				<div class="item-wrapper">
-					<div class="card-box align-left">
-						<p class="card-text mbr-fonts-style display-7">
-							Incredible service! Uploading and downloading files is smoother.
-						</p>
-						<div class="img-wrapper mt-4 mb-3">
-							<img src="../static/assets/images/photo-1599566150163-29194dcaad36.jpeg" data-slide-to="2" data-bs-slide-to="2">
-						</div>
-						<h5 class="card-title mbr-fonts-style display-7">
-							<strong>B McCullum</strong>
-						</h5>
-					</div>
-				</div>
-			</div>
-			<div class="item features-without-image col-12 col-md-6 col-lg-4">
-				<div class="item-wrapper">
-					<div class="card-box align-left">
-						<p class="card-text mbr-fonts-style display-7">
-							Unbelievable! My files are now on the blockchain, so cool!
-						</p>
-						<div class="img-wrapper mt-4 mb-3">
-							<img src="../static/assets/testi/rathi.jpg" data-slide-to="4" data-bs-slide-to="5">
-						</div>
-						<h5 class="card-title mbr-fonts-style display-7">
-							<strong>Rathi R</strong>
-						</h5>
-					</div>
-				</div>
-			</div>
-			<div class="item features-without-image col-12 col-md-6 col-lg-4">
-				<div class="item-wrapper">
-					<div class="card-box align-left">
-						<p class="card-text mbr-fonts-style display-7">
-							Fantastic platform! The future of file storage is here, and it&#x27;s amazing!
-						</p>
-						<div class="img-wrapper mt-4 mb-3">
-							<img src="../static/assets/testi/kesi.jpg" data-slide-to="6" data-bs-slide-to="6">
-						</div>
-						<h5 class="card-title mbr-fonts-style display-7">
-							<strong>Kesika V</strong>
-						</h5>
-					</div>
-				</div>
-			</div>
-			<div class="item features-without-image col-12 col-md-6 col-lg-4">
-				<div class="item-wrapper">
-					<div class="card-box align-left">
-						<p class="card-text mbr-fonts-style display-7">
-							Outstanding service! I can&#x27;t imagine using other file storage solution now.
-						</p>
-						<div class="img-wrapper mt-4 mb-3">
-							<img src="../static/assets/testi/gokul.jpg" data-slide-to="7" data-bs-slide-to="7">
-						</div>
-						<h5 class="card-title mbr-fonts-style display-7">
-							<strong>Gokul R</strong>
-						</h5>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-    <style>
-  .cid-u4xsx0dhCW {
-    padding-top: 5rem;
-    padding-bottom: 3rem;
-    background-color: #ffffff;
-  }
-  .cid-u4xsx0dhCW .item-subtitle {
-    line-height: 1.2;
-    color: #000000;
-    text-align: center;
-  }
-  .cid-u4xsx0dhCW img,
-  .cid-u4xsx0dhCW .item-img {
-    width: 100%;
-    height: 100%;
-    height: 400px;
-    object-fit: cover;
-  }
-  .cid-u4xsx0dhCW .item:focus,
-  .cid-u4xsx0dhCW span:focus {
-    outline: none;
-  }
-  .cid-u4xsx0dhCW .item {
-    margin-bottom: 2rem;
-  }
-  @media (max-width: 767px) {
-    .cid-u4xsx0dhCW .item {
-      margin-bottom: 1rem;
-    }
-  }
-  .cid-u4xsx0dhCW .item-wrapper {
-    position: relative;
-    border-radius: 4px;
-    display: flex;
-    flex-flow: column nowrap;
-  }
-  .cid-u4xsx0dhCW .mbr-section-btn {
-    margin-top: auto !important;
-  }
-  .cid-u4xsx0dhCW .mbr-section-title {
-    color: #000000;
-  }
-  .cid-u4xsx0dhCW .mbr-text,
-  .cid-u4xsx0dhCW .mbr-section-btn {
-    color: #000000;
-    text-align: center;
-  }
-  .cid-u4xsx0dhCW .item-title {
-    color: #000000;
-  }
-  .cid-u4xsx0dhCW .content-head {
-    max-width: 800px;
-  }
-
-  .center1{
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
-<section class="people03 cid-u4xsx0dhCW" id="people-1-u4xsx0dhCW center">
-	<div class="container-fluid">
-		<div class="row justify-content-center">
-			<div class="col-12 content-head">
-				<div class="mbr-section-head mb-5">
-					<h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-						<strong>Meet the Team</strong>
-					</h4>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="item features-image col-12 col-md-6 col-lg-3 center1">
-				<div class="item-wrapper">
-					<div class="item-img mb-3">
-						<img src="../static/assets/team/jas.jpg">
-					</div>
-					<div class="item-content align-left">
-						<h6 class="item-subtitle mbr-fonts-style display-5">
-							<strong>Jaswanth</strong></h6>
-						<p class="mbr-text mbr-fonts-style display-7">Software Development Engineer</p>  
-            <!-- Founder &amp; CEO -->
-					</div>
-				</div>
-			</div>
-			<div class="item features-image col-12 col-md-6 col-lg-3 center1">
-				<div class="item-wrapper">
-					<div class="item-img mb-3">
-						<img src="../static/assets/team/sanju.JPG">
-					</div>
-					<div class="item-content align-left">
-						<h6 class="item-subtitle mbr-fonts-style display-5">
-							<strong>Sanjay </strong></h6>
-						<p class="mbr-text mbr-fonts-style display-7">Blockchain Expert</p>
-					</div>
-				</div>
-			</div>
-			<div class="item features-image col-12 col-md-6 col-lg-3 center1">
-				<div class="item-wrapper">
-					<div class="item-img mb-3">
-						<img src="../static/assets/team/hari1c.JPG">
-					</div>
-					<div class="item-content align-left">
-						<h6 class="item-subtitle mbr-fonts-style display-5">
-							<strong>Hari Krishnan</strong></h6>
-						<p class="mbr-text mbr-fonts-style display-7">Front-end Developer</p>
-					</div>
-				</div>
-			</div>
-      <!-- <div class="item features-image col-12 col-md-6 col-lg-3">
-        <div class="item-wrapper">
-          <div class="item-img mb-3">
-            <img src="assets/images/photo-1532073150508-0c1df022bdd1.jpeg">
-          </div>
-          <div class="item-content align-left">
-            <h6 class="item-subtitle mbr-fonts-style display-5">
-              <strong>Luna Nova</strong>
-            </h6>
-            <p class="mbr-text mbr-fonts-style display-7">UX Designer</p>
-          </div>
-        </div>
-      </div> -->
-		</div>
-	</div>
-</section>
-    <style>
-.cid-u4xsx0dkZd {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  background-color: #ffffff;
-}
-.cid-u4xsx0dkZd .item:focus,
-.cid-u4xsx0dkZd span:focus {
-  outline: none;
-}
-.cid-u4xsx0dkZd .item {
-  cursor: pointer;
-}
-.cid-u4xsx0dkZd .grid-container {
-  grid-row-gap: 2rem;
-}
-@media (max-width: 767px) {
-  .cid-u4xsx0dkZd .grid-container {
-    grid-row-gap: 1rem;
-  }
-}
-.cid-u4xsx0dkZd .grid-container-1,
-.cid-u4xsx0dkZd .grid-container-2 {
-  gap: 0 2rem;
-}
-@media (max-width: 767px) {
-  .cid-u4xsx0dkZd .grid-container-1,
-  .cid-u4xsx0dkZd .grid-container-2 {
-    gap: 0 1rem;
-  }
-}
-.cid-u4xsx0dkZd .mbr-section-title {
-  color: #000000;
-}
-.cid-u4xsx0dkZd .mbr-text,
-.cid-u4xsx0dkZd .mbr-section-btn {
-  color: #000000;
-}
-.cid-u4xsx0dkZd .content-head {
-  max-width: 800px;
-}
-.cid-u4xsx0dkZd .container,
-.cid-u4xsx0dkZd .container-fluid {
-  overflow: hidden;
-}
-.cid-u4xsx0dkZd .grid-container {
-  display: grid;
-  transform: translate3d(-3rem, 0, 0);
-  width: 115vw;
-  grid-column-gap: 1rem;
-}
-.cid-u4xsx0dkZd .grid-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.cid-u4xsx0dkZd .grid-item img {
-  min-width: 30vw;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-}
-@media (max-width: 767px) {
-  .cid-u4xsx0dkZd .grid-item img {
-    min-width: 35vw;
-  }
-}
-.cid-u4xsx0dkZd .grid-container-1,
-.cid-u4xsx0dkZd .grid-container-2 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-columns: 1fr;
-  grid-auto-flow: column;
-}
-.cid-u4xsx0dkZd .grid-container-1 {
-  align-items: flex-end;
-}
-.cid-u4xsx0dkZd .grid-container-2 {
-  align-items: flex-start;
-}
-
-</style>
-<section class="gallery4 cid-u4xsx0dkZd" id="gallery-12-u4xsx0dkZd">
-  <div class="container-fluid gallery-wrapper">
-    <div class="grid-container">
-      <div class="grid-container-1" style="transform: translate3d(-100px, 0px, 0px);">
-        <div class="grid-item">
-          <img src="../static/assets/images/b1.jpg">
-        </div>
-        <div class="grid-item">
-          <img src="../static/assets/images/b2.jpg">
-        </div>
-        <div class="grid-item">
-          <img src="../static/assets/images/photo-1518186285589-2f7649de83e0.jpeg">
-        </div>
-        <div class="grid-item">
-          <img src="../static/assets/images/b3.jpg">
-        </div>
-      </div>
-      <div class="grid-container-2" style="transform: translate3d(-70px, 0px, 0px);">
-        <div class="grid-item">
-          <img src="../static/assets/images/photo-1529078155058-5d716f45d604.jpeg">
-        </div>
-        <div class="grid-item">
-          <img src="../static/assets/images/photo-1639987759021-bc55a0c96ce1.jpeg">
-        </div>
-        <div class="grid-item">
-          <img src="../static/assets/images/photo-1639322537231-2f206e06af84.jpeg">
-        </div>
-        <div class="grid-item">
-          <img src="../static/assets/images/b4.jpg">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-    <style>
-  .cid-u4xsx0domo {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    background-color: var(--dominant-color, #260a30);
-  }
-
-  .cid-u4xsx0domo input {
-    padding: 1.2rem 1.5rem;
-    border: none !important;
-    height: 100%;
-  }
-
-  .cid-u4xsx0domo input:hover {
-    border: none !important;
-  }
-
-  .cid-u4xsx0domo .btn {
-    height: 100%;
-    margin: auto;
-  }
-
-  @media (min-width: 992px) {
-    .cid-u4xsx0domo .text-wrapper {
-      padding: 0 2rem;
-    }
-  }
-
-  .cid-u4xsx0domo .row {
-    justify-content: center;
-  }
-
-  .cid-u4xsx0domo .mbr-section-btn {
-    display: flex;
-    margin-bottom: 1.2rem;
-    width: fit-content;
-  }
-
-  @media (min-width: 768px) {
-    .cid-u4xsx0domo .mbr-section-btn {
-      margin-left: initial;
-    }
-  }
-
-  .cid-u4xsx0domo .mbr-section-btn .btn {
-    width: auto;
-  }
-
-  @media (max-width: 700px) {
-    .cid-u4xsx0domo .image-wrapper {
-      margin-bottom: 2rem;
-    }
-
-    .cid-u4xsx0domo .content-wrapper {
-      flex-direction: column-reverse;
-    }
-  }
-
-  .cid-u4xsx0domo .justify-content-center {
-    align-items: center;
-  }
-
-  .cid-u4xsx0domo .mbr-section-title {
-    text-align: center;
-    color: var(--dominant-text, #ffd7ef);
-  }
-</style>
-<section class="header2 cid-u4xsx0domo bg2" id="subscription-form-1-u4xsx0domo">
-  <div class="container">
-    <div class="row content-wrapper justify-content-center">
-      <div class="col-lg-8 mbr-form">
-        <div class="">
-          <h1 class="mbr-section-title mbr-fonts-style mb-5 display-1">
-            <strong>Stay Updated on FileCryp</strong>
-          </h1>
-        </div>
-        <div class="text-wrapper align-left" data-form-type="formoid">
-          <form action="#" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="">
-            <div class="row">
-              <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
-              <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
-                Oops...! some problem!
-              </div>
-            </div>
-            <div class="dragArea row">
-              <div data-for="email" class="col-lg-6 col-md-6 col-sm-12 form-group">
-                <input type="email" name="email" placeholder="test@email.com" data-form-field="email" class="form-control display-7" value="" id="email-header02-0">
-              </div>
-              <div class="col-auto mbr-section-btn"><button type="submit" class="w-100 btn btn-primary display-7">Subscribe Now</button></div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-    <style>
-  .cid-u4xsx0dJcu {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    background-color: #ffffff;
-    align-items: center;
-  }
-
-  .center {
-  display: block;
-  margin-left: 100px;
-  margin-right: auto;
-  width: 50%;
-}
-  .cid-u4xsx0dJcu .item-subtitle {
-    line-height: 1.2;
-    color: #000000;
-    align-items: center;
-  }
-  .cid-u4xsx0dJcu img,
-  .cid-u4xsx0dJcu .item-img {
-    width: 100%;
-    align-items: center;
-  }
-  .cid-u4xsx0dJcu .item:focus,
-  .cid-u4xsx0dJcu span:focus {
-    outline: none;
-    align-items: center;
-  }
-  .cid-u4xsx0dJcu .item {
-    margin-bottom: 2rem;
-    align-items: center;
-  }
-  @media (max-width: 575px) {
-    .cid-u4xsx0dJcu .item {
-      margin-bottom: 1rem;
+    .navbar-links {
+      display: flex;
       align-items: center;
     }
-  }
-  .cid-u4xsx0dJcu .item-wrapper {
-    position: relative;
-    border-radius: 4px;
-    height: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-  }
-  .cid-u4xsx0dJcu .mbr-section-title {
-    color: #000000;
-    align-items: center;
-  }
-  .cid-u4xsx0dJcu .mbr-text,
-  .cid-u4xsx0dJcu .mbr-section-btn {
-    color: #000000;
-    align-items: center;
-  }
-  .cid-u4xsx0dJcu .item-title {
-    color: #000000;
-    text-align: center;
-    align-items: center;
-  }
-  .cid-u4xsx0dJcu .content-head {
-    max-width: 800px;
-    align-items: center;
-  }
-  /* .cid-u4xsx0dJcu img { */
-    /* filter: grayscale(1);
-    align-items: center;
-  } */
-
-
-</style>
-<section class="features03 cid-u4xsx0dJcu" id="sponsors-1-u4xsx0dJcu">
-    <div class="container-fluid">
-        <div class="row justify-content-center mb-5">
-            <div class="col-12 content-head">
-                <div class="mbr-section-head">
-                    <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-                        <strong>Our Tech Allies</strong>
-                    </h4>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="item features-image col-12 col-md-6 col-sm-6 col-lg-2 active">
-                <div class="item-wrapper">
-                    <div class="item-img">
-                        <img src="../static/assets/images/pinata.jpg" class="center" data-slide-to="1" data-bs-slide-to="1">
-                    </div>
-                </div>
-            </div>
-            <div class="item features-image col-12 col-md-6 col-sm-6 col-lg-2">
-                <div class="item-wrapper">
-                    <div class="item-img">
-                        <img src="../static/assets/images/ganache.jpeg" class="center" data-slide-to="2" data-bs-slide-to="2">
-                    </div>
-                </div>
-            </div>
-            <div class="item features-image col-12 col-md-6 col-sm-6 col-lg-2">
-                <div class="item-wrapper">
-                    <div class="item-img">
-                        <img src="../static/assets/images/metamask.png" class="center" data-slide-to="3" data-bs-slide-to="3">
-                    </div>
-                </div>
-            </div>
-            <div class="item features-image col-12 col-md-6 col-sm-6 col-lg-2">
-                <div class="item-wrapper">
-                    <div class="item-img">
-                        <img src="../static/assets/images/block.jpeg" class="center" data-slide-to="4" data-bs-slide-to="4">
-                    </div>
-                </div>
-            </div>
-            <div class="item features-image col-12 col-md-6 col-sm-6 col-lg-2">
-                <div class="item-wrapper">
-                    <div class="item-img">
-                        <img src="../static/assets/images/ipfs.png" class="center" data-slide-to="5" data-bs-slide-to="5">
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="item features-image col-12 col-md-6 col-sm-6 col-lg-2">
-                <div class="item-wrapper">
-                    <div class="item-img">
-                        <img src="assets/images/photo-1622547748225-3fc4abd2cca0.jpeg" data-slide-to="6" data-bs-slide-to="6">
-                    </div>
-                </div>
-            </div> -->
-        </div>
-    </div>
-</section>
-    <style>
-    .cid-u4xsx0dsCA {
-        padding-top: 5rem;
-        padding-bottom: 3rem;
-        background-color: #ffffff;
+    .navbar a {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1rem;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 500;
+      margin: 0 1.5rem;
+      transition: var(--transition);
     }
-
-    .cid-u4xsx0dsCA .item-subtitle {
-        line-height: 1.2;
-        color: #000000;
+    .navbar.scrolled a {
+      color: var(--text-color);
     }
-
-    .cid-u4xsx0dsCA img,
-    .cid-u4xsx0dsCA .item-img {
-        width: 100%;
-        height: 100%;
-        height: 300px;
-        object-fit: cover;
+    .navbar a:hover {
+      color: var(--primary-color);
     }
-
-    .cid-u4xsx0dsCA .item:focus,
-    .cid-u4xsx0dsCA span:focus {
-        outline: none;
+    .btn-primary {
+      background: var(--violet-gradient);
+      border: none;
+      color: var(--white);
+      padding: 0.75rem 2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-family: 'Inter Tight', sans-serif;
+      font-weight: 500;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
     }
-
-    .cid-u4xsx0dsCA .item {
-        margin-bottom: 2rem;
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
     }
-
-    @media (max-width: 767px) {
-        .cid-u4xsx0dsCA .item {
-            margin-bottom: 1rem;
-        }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
     }
-
-    .cid-u4xsx0dsCA .item-wrapper {
-        position: relative;
-        border-radius: 4px;
-        height: 100%;
-        display: flex;
-        flex-flow: column nowrap;
+    .btn-primary:hover::before {
+      left: 100%;
     }
-
-    .cid-u4xsx0dsCA .mbr-section-title {
-        color: #000000;
+    .hero .btn-primary {
+      background: var(--white);
+      color: #3498db;
+      border: 2px solid #8e44ad;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
-
-    .cid-u4xsx0dsCA .mbr-text,
-    .cid-u4xsx0dsCA .mbr-section-btn {
-        color: #000000;
+    .hero .btn-primary:hover {
+      background: #f0f0f0;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
-
-    .cid-u4xsx0dsCA .item-title {
-        color: #000000;
+    .hero .btn-primary::before {
+      background: linear-gradient(90deg, transparent, rgba(142, 68, 173, 0.2), transparent);
     }
-
-    .cid-u4xsx0dsCA .content-head {
-        max-width: 800px;
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 8rem 2rem;
+      background: var(--violet-gradient);
+      color: var(--white);
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-</style>
-<!-- <section class="blog-2 cid-u4xsx0dsCA" id="blog-2-u4xsx0dsCA">
-    <div class="container-fluid">
-        <div class="row justify-content-center mb-5">
-            <div class="col-12 content-head">
-                <div class="mbr-section-head">
-                    <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-                        <strong>Insights into Crypto Wonders</strong>
-                    </h4>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="item features-image col-12 col-md-6 col-lg-3 active">
-                <div class="item-wrapper">
-                    <div class="item-img mb-3">
-                        <img src="assets/images/photo-1556155092-490a1ba16284.jpeg">
-                    </div>
-                    <div class="item-content align-left">
-                        <h5 class="item-title mbr-fonts-style mt-0 mb-3 display-7">
-                            Innovate
-                        </h5>
-                        <h6 class="item-subtitle mbr-fonts-style mb-3 display-5">
-                            <strong>Unleashing Blockchain Power</strong>
-                        </h6>
-
-                        <div class="mbr-section-btn item-footer">
-                            <a href="" class="btn item-btn btn-primary display-7">
-                                Read
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item features-image col-12 col-md-6 col-lg-3">
-                <div class="item-wrapper">
-                    <div class="item-img mb-3">
-                        <img src="assets/images/photo-1526374965328-7f61d4dc18c5.jpeg" data-slide-to="1" data-bs-slide-to="1">
-                    </div>
-                    <div class="item-content align-left">
-                        <h5 class="item-title mbr-fonts-style mb-3 mt-0 display-7">
-                            Revolution
-                        </h5>
-                        <h6 class="item-subtitle mbr-fonts-style mb-3 display-5">
-                            <strong>IPFS: The Future Unleashed</strong>
-                        </h6>
-                        <div class="mbr-section-btn item-footer">
-                            <a href="" class="btn item-btn btn-primary display-7">
-                                Read
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item features-image col-12 col-md-6 col-lg-3">
-                <div class="item-wrapper">
-                    <div class="item-img mb-3">
-                        <img src="assets/images/photo-1639987842894-0dccd76a96f6.jpeg" data-slide-to="2" data-bs-slide-to="2">
-                    </div>
-                    <div class="item-content align-left">
-                        <h5 class="item-title mbr-fonts-style mb-3 mt-0 display-7">
-                            Discover
-                        </h5>
-                        <h6 class="item-subtitle mbr-fonts-style mt-0 mb-3 display-5">
-                            <strong>Decentralized File Storage Marvel</strong>
-                        </h6>
-                        <div class="mbr-section-btn item-footer">
-                            <a href="" class="btn item-btn btn-primary display-7">
-                                Read
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item features-image col-12 col-md-6 col-lg-3">
-                <div class="item-wrapper">
-                    <div class="item-img mb-3">
-                        <img src="assets/images/photo-1640161704729-cbe966a08476.jpeg" data-slide-to="3" data-bs-slide-to="4">
-                    </div>
-                    <div class="item-content align-left">
-                        <h5 class="item-title mbr-fonts-style mb-3 mt-0 display-7">
-                            Explore
-                        </h5>
-                        <h6 class="item-subtitle mbr-fonts-style mt-0 mb-3 display-5">
-                            <strong>
-                                Navigating the Blockchain Realm
-                            </strong>
-                        </h6>
-
-                        <div class="mbr-section-btn item-footer">
-                            <a href="" class="btn item-btn btn-primary display-7">
-                                Read
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-    <style>
-.cid-u4xsx0d68j {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  /* background-color: #d3d3d3; */
-  background-color: linear-gradient(to right, #3498db, #8e44ad);
-}
-.cid-u4xsx0d68j .item:focus,
-.cid-u4xsx0d68j span:focus {
-  outline: none;
-}
-.cid-u4xsx0d68j .container-fluid {
-  padding-left: 0;
-  padding-right: 0;
-  overflow: hidden;
-}
-.cid-u4xsx0d68j .content-head {
-  max-width: 800px;
-}
-.cid-u4xsx0d68j .item {
-  color: #ffffff;
-  min-height: 90px;
-  font-weight: bold;
-}
-@media (max-width: 768px) {
-  .cid-u4xsx0d68j .item {
-    min-height: 45px;
-  }
-}
-</style>
-<section class="gallery10 cid-u4xsx0d68j bg2" id="features-61-u4xsx0d68j">
-  <div class="container-fluid">
-      <div class="loop-container">
-        <div class="item display-1" data-linewords="
-          Upload Magic Files *
-          Download Instantly *
-          Blockchain Security Shield *
-          IPFS Speed Boost *
-          Parallax Wonder *
-          Tech Marvels Showcase *" 
-        data-direction="-1" data-speed="0.05">
-        </div>
-        <div class="item display-1" data-linewords="
-          Upload Magic Files *
-          Download Instantly *
-          Blockchain Security Shield *
-          IPFS Speed Boost *
-          Parallax Wonder *
-          Tech Marvels Showcase *" 
-        data-direction="-1" data-speed="0.05">
-        </div>
-      </div>   
-  </div>
-</section>
-    <style>
-    .cid-u4xsx0epEz {
-        padding-top: 6em;
-        padding-bottom: 6em;
-        background-color: var(--dominant-color, #000000);
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+      opacity: 0.3;
     }
-    @media (min-width: 768px) {
-        .cid-u4xsx0epEz {
-            align-items: center;
-        }
-        .cid-u4xsx0epEz .row {
-            justify-content: center;
-        }
+    .hero-content {
+      position: relative;
+      max-width: 800px;
     }
-    @media (max-width: 991px) and (min-width: 768px) {
-        .cid-u4xsx0epEz .content-wrap {
-            min-width: 50%;
-        }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+      animation: fadeInDown 1s ease-in-out;
     }
-    @media (max-width: 767px) {
-        .cid-u4xsx0epEz {
-            -webkit-align-items: center;
-            align-items: center;
-        }
-        .cid-u4xsx0epEz .mbr-row {
-            -webkit-justify-content: center;
-            justify-content: center;
-        }
-        .cid-u4xsx0epEz .content-wrap {
-            width: 100%;
-        }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      animation: fadeIn 1.2s ease-in-out;
     }
-    .cid-u4xsx0epEz .mbr-section-title {
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .section-title::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: var(--violet-gradient);
+      position: absolute;
+      bottom: -10px;
+      border-radius: 4px;
+    }
+    .themed-section {
+      background: var(--violet-gradient);
+      color: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 2rem;
+    }
+    .themed-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+      opacity: 0.3;
+    }
+    .themed-section .section-title,
+    .themed-section p,
+    .themed-section li {
+      color: var(--white);
+    }
+    .themed-section li::before {
+      color: var(--white);
+    }
+    .themed-section li:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .themed-section li:hover::before {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .themed-section a {
+      color: var(--white);
+    }
+    .themed-section a:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .themed-section a::after {
+      background: rgba(255, 255, 255, 0.8);
+    }
+    .neutral-section {
+      background: var(--white);
+      padding: 5rem 2rem;
+    }
+    .neutral-section .section-title {
+      color: var(--primary-color);
+    }
+    .neutral-section p,
+    .neutral-section li {
+      color: var(--text-color);
+    }
+    .neutral-section li::before {
+      color: var(--secondary-color);
+    }
+    .neutral-section li:hover {
+      color: var(--primary-color);
+    }
+    .neutral-section li:hover::before {
+      color: var(--primary-color);
+    }
+    .section-content-left {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    .section-content-left .section-title {
+      flex: 1;
+      text-align: left;
+    }
+    .section-content-left .section-title::after {
+      left: 0;
+      transform: none;
+    }
+    .section-content-left .content {
+      flex: 2;
+    }
+    .section-content-right {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    .section-content-right .section-title {
+      flex: 1;
+      text-align: right;
+    }
+    .section-content-right .section-title::after {
+      right: 0;
+      left: auto;
+      transform: none;
+    }
+    .section-content-right .content {
+      flex: 2;
+      text-align: left;
+    }
+    .content p,
+    .content li {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .features ul {
+      list-style: none;
+      padding: 0;
+    }
+    .features li {
+      padding-left: 1.5rem;
+      position: relative;
+      transition: var(--transition);
+    }
+    .features li:hover {
+      transform: translateX(5px);
+    }
+    .features li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      transition: var(--transition);
+    }
+    .testimonials {
+      background: #f8f9fa;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .testimonials .section-title {
+      color: var(--primary-color);
+    }
+    .testimonial-quote {
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--text-color);
+      max-width: 800px;
+      margin: 0 auto 1rem;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+      animation-delay: 0.5s;
+    }
+    .testimonial-author {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      font-weight: 500;
+    }
+    footer {
+      background: #1a2526;
+      color: var(--white);
+      padding: 3rem 2rem;
+      font-size: 0.9rem;
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+    .footer-column h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+    .footer-column a {
+      color: var(--white);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: var(--transition);
+    }
+    .footer-column a:hover {
+      color: var(--secondary-color);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 2rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 768px) {
+      .navbar-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .navbar-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .navbar a {
+        font-size: 0.9rem;
+        margin: 0 1rem;
+      }
+      .navbar-brand img {
+        height: 2rem;
+      }
+      .btn-primary {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+      }
+      .hero {
+        padding: 5rem 1rem;
+        min-height: 400px;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+      section {
+        padding: 3rem 1rem;
+      }
+      .themed-section, .neutral-section {
+        padding: 3rem 1rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .section-content-left, .section-content-right {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .section-content-left .section-title,
+      .section-content-right .section-title {
+        text-align: left;
+      }
+      .section-content-left .section-title::after,
+      .section-content-right .section-title::after {
+        left: 0;
+        right: auto;
+        transform: none;
+      }
+      .section-content-right .content {
+        text-align: left;
+      }
+      .content p, .content li, .faq .card-body {
+        font-size: 1rem;
+      }
+      .faq .card-title {
+        font-size: 1.1rem;
+      }
+      .testimonials {
+        padding: 3rem 1rem;
+      }
+      .testimonial-quote {
+        font-size: 1.1rem;
+      }
+      .footer-container {
+        flex-direction: column;
         text-align: center;
-        color: var(--dominant-text, #000000);
+      }
     }
-    .cid-u4xsx0epEz .mbr-text,
-    .cid-u4xsx0epEz .mbr-section-btn {
-        text-align: center;
-        color: var(--dominant-text, #000000);
-    }
-
-    .bg3{
-      background-color: black;
-      color: #0AA3C2;
-      
-    }
-    .clr{
-      color: black;
-    }
-    .rad{
-      border-radius: 100px;
-    }
-</style>
-<section class="header19 cid-u4xsx0epEz bg3 clr" id="call-to-action-7-u4xsx0epEz">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-8">
-                <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1 clr">
-                    <strong>Experience the Blockchain Thrill</strong>
-                </h1>
-                <p class="mbr-fonts-style mbr-text mb-4 display-7 clr">
-                    Join the Future of File Storage Today and Embrace the Magic!
-                </p>
-                <div class="mbr-section-btn">
-                    <button class=" rounded-pill btn btn-primary display-7" id="metamaskLoginBtn">
-                        Get Started
-                    </button>
-                    <!-- <a class="btn btn-secondary display-7" href="#">
-                        Learn More
-                    </a></div> -->
-                
-            </div>
-        </div>
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <img src="../static/images/FileCryp-logos.jpeg" alt="FileCryp">
+      </div>
+      <div class="navbar-links">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#faq">FAQs</a>
+        <a href="#contact">Contact</a>
+        <button class="btn-primary" id="metamaskLoginBtn">Get Started</button>
+      </div>
     </div>
-       <!-- MetaMask script -->
-       <script>
-        document.getElementById('metamaskLoginBtn').addEventListener('click', async function() {
-            if (typeof window.ethereum !== 'undefined') {
-                try {
-                    await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-                    const selectedAccount = accounts[0];
-                    console.log('MetaMask login successful. Selected account:', selectedAccount);
-                } catch (error) {
-                    console.error('MetaMask login error:', error.message);
-                }
-            } else {
-                alert('Please install MetaMask to use this feature.');
-            }
-        });
-    </script>
-</section>
-    <style>
-.cid-u4xsx0e275 .mbr-fallback-image.disabled {
-  display: none;
-}
-.cid-u4xsx0e275 .mbr-fallback-image {
-  display: block;
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  background: #000000;
-}
-</style>
-<!-- youtube https://www.youtube.com/watch?v=HNj8c2bRsAg -->
-<section class="header18 cid-u4xsx0e275 mbr-fullscreen" data-bg-video="https://www.youtube.com/watch?v=HNj8c2bRsAg?autoplay&#x3D;1&amp;loop&#x3D;1&amp;playlist&#x3D;Vsq1_kewchQ&amp;t&#x3D;20&amp;mute&#x3D;1&amp;playsinline&#x3D;1&amp;controls&#x3D;0&amp;showinfo&#x3D;0&amp;autohide&#x3D;1&amp;allowfullscreen&#x3D;true&amp;mode&#x3D;transparent" id="video-5-u4xsx0e275">
-  <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(0, 0, 0);"></div>
-  <div class="container-fluid">
-    <div class="row">
-    </div>
-  </div>
-</section>
-    <style>
-.cid-u4xsx0eBFB {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: #ffffff;
-}
-.cid-u4xsx0eBFB .mbr-fallback-image.disabled {
-  display: none;
-}
-.cid-u4xsx0eBFB .mbr-fallback-image {
-  display: block;
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-}
-.cid-u4xsx0eBFB .bg-facebook {
-  background: #1778f2;
-  color: #ffffff;
-}
-.cid-u4xsx0eBFB .bg-facebook:hover {
-  background: #0b60cb;
-}
-.cid-u4xsx0eBFB .bg-twitter {
-  background: #1da1f2;
-  color: #ffffff;
-}
-.cid-u4xsx0eBFB .bg-twitter:hover {
-  background: #0c85d0;
-}
-.cid-u4xsx0eBFB .bg-instagram {
-  background: #f00075;
-  color: #ffffff;
-}
-.cid-u4xsx0eBFB .bg-instagram:hover {
-  background: #bd005c;
-}
-.cid-u4xsx0eBFB .bg-tiktok {
-  background: #000000;
-  color: #ffffff;
-}
-.cid-u4xsx0eBFB .bg-tiktok:hover {
-  background: #000000;
-}
-.cid-u4xsx0eBFB .iconfont-wrapper {
-  display: inline-block;
-  font-size: 32px;
-  border-radius: 50%;
-  width: 72px;
-  height: 72px;
-  line-height: 72px;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
-}
-.cid-u4xsx0eBFB [class^="socicon-"]:before,
-.cid-u4xsx0eBFB [class*=" socicon-"]:before {
-  line-height: 55px;
-  padding: .6rem;
-}
+  </nav>
 
-</style>
-<section class="social4 cid-u4xsx0eBFB" id="follow-us-1-u4xsx0eBFB">
-    <div class="container">
-        <div class="media-container-row">
-            <div class="col-12">
-                <h3 class="mbr-section-title align-center mb-5 mbr-fonts-style display-2">
-                    <strong>Connect with Us</strong>
-                </h3>
-                <div class="social-list align-center">
-                    <a class="iconfont-wrapper bg-facebook m-2 " target="_blank" href="#">
-                        <span class="socicon-facebook socicon"></span>
-                    </a>
-                    <a class="iconfont-wrapper bg-twitter m-2" href="#" target="_blank">
-                        <span class="socicon-twitter socicon"></span>
-                    </a>
-                    <a class="iconfont-wrapper bg-instagram m-2" href="#" target="_blank">
-                        <span class="socicon-instagram socicon"></span>
-                    </a>
-                    <a class="iconfont-wrapper bg-tiktok m-2" href="#" target="_blank">
-                        <span class="socicon-tiktok socicon"></span>
-                    </a>                   
-                </div>
-            </div>
-        </div>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Unleash the Power of FileCryp</h1>
+      <p>Revolutionize file storage with blockchain technology and IPFS for unparalleled security and efficiency.</p>
+      <button class="btn-primary">Try FileCryp Now</button>
     </div>
-</section>
-    <style>
-.cid-u4xsx0efPd {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  background-color: transparent;
-}
-.cid-u4xsx0efPd .mbr-overlay {
-  background-color: #ffffff;
-  opacity: 0.4;
-}
-.cid-u4xsx0efPd form .mbr-section-btn {
-  text-align: center;
-  width: 100%;
-}
-.cid-u4xsx0efPd form .mbr-section-btn .btn {
-  display: inline-flex;
-}
-@media (max-width: 991px) {
-  .cid-u4xsx0efPd form .mbr-section-btn .btn {
-    width: 100%;
-  }
-}
-.cid-u4xsx0efPd .content-head {
-  max-width: 800px;
-}
+  </header>
 
-</style>
-<section class="form5 cid-u4xsx0efPd" id="contact-form-2-u4xsx0efPd">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 content-head">
-                <div class="mbr-section-head mb-5">
-                    <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-                        <strong>Get in Touch</strong>
-                    </h3>                    
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
-                <form action="#" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="">
-                    <div class="row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
-                            Oops...! some problem!
-                        </div>
-                    </div>
-                    <div class="dragArea row">
-                        <div class="col-md col-sm-12 form-group mb-3" data-for="name">
-                            <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name-form02-0">
-                        </div>
-                        <div class="col-md col-sm-12 form-group mb-3" data-for="email">
-                            <input type="email" name="email" placeholder="Email" data-form-field="email" class="form-control" value="" id="email-form02-0">
-                        </div>
-                        <div class="col-12 form-group mb-3" data-for="textarea">
-                            <textarea name="textarea" placeholder="Message" data-form-field="textarea" class="form-control" id="textarea-form02-0"></textarea>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><button type="submit" class="btn btn-primary display-7">Send</button></div>
-                    </div>
-                </form>
-            </div>
-        </div>
+  <section class="neutral-section" id="about">
+    <div class="section-content-left">
+      <h2 class="section-title">Empower Your Files</h2>
+      <div class="content">
+        <p>Welcome to FileCryp, where your files are safeguarded by the revolutionary blockchain technology of IPFS.</p>
+        <p>Experience lightning-fast file uploads and downloads with unparalleled security and decentralization.</p>
+        <p>Join us today and revolutionize the way you store and access your data!</p>
+      </div>
     </div>
-</section>
-    <style>
-.cid-u4xsx0g9K0 {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  background-color: transparent;
-}
-.cid-u4xsx0g9K0 .mbr-fallback-image.disabled {
-  display: none;
-}
-.cid-u4xsx0g9K0 .mbr-fallback-image {
-  display: block;
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-}
-.cid-u4xsx0g9K0 .row {
-  justify-content: center;
-}
-.cid-u4xsx0g9K0 .item {
-  margin-bottom: 2rem;
-}
-@media (max-width: 767px) {
-  .cid-u4xsx0g9K0 .item {
-    margin-bottom: 1rem;
-  }
-}
-.cid-u4xsx0g9K0 .item .item-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background: #ffffff;
-  padding: 2.25rem;
-}
-@media (min-width: 992px) and (max-width: 1200px) {
-  .cid-u4xsx0g9K0 .item .item-wrapper {
-    padding: 2rem 1.5rem;
-  }
-}
-@media (max-width: 767px) {
-  .cid-u4xsx0g9K0 .item .item-wrapper {
-    padding: 2rem 1.5rem;
-  }
-}
-.cid-u4xsx0g9K0 .content-head {
-  max-width: 800px;
-}
+  </section>
 
-</style>
-<section class="contacts01 cid-u4xsx0g9K0" id="contacts-1-u4xsx0g9K0">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 content-head">
-                <div class="mbr-section-head mb-5">
-                    <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
-                        <strong>Contact Us</strong>
-                    </h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="item features-without-image col-12 col-md-6 active">
-                <div class="item-wrapper">
-                    <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style mb-3 display-5">
-                            <strong>Phone</strong>
-                        </h6>
-                        <p class="mbr-text mbr-fonts-style display-7">
-                            <a href="tel:+123456789" class="text-black">+91 12345 67890</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="item features-without-image col-12 col-md-6">
-                <div class="item-wrapper">
-                    <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style mb-3 display-5">
-                            <strong>Email</strong>
-                        </h6>
-                        <p class="mbr-text mbr-fonts-style display-7">
-                            <a href="mailto:contact@blockchainfilestorage.com" class="text-black">fileCryp@fileCryp.com</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="item features-without-image col-12 col-md-6">
-                <div class="item-wrapper">
-                    <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style mb-3 display-5">
-                            <strong>Address</strong>
-                        </h6>
-                        <p class="mbr-text mbr-fonts-style display-7">
-                             India
-                        </p>
-                    </div>
-                </div>
-            </div> -->
-            <!-- <div class="item features-without-image col-12 col-md-6">
-                <div class="item-wrapper">
-                    <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style mb-3 display-5">
-                            <strong>Working Hours</strong>
-                        </h6>
-                        <p class="mbr-text mbr-fonts-style display-7">
-                            Mon-Fri: 9am-6pm
-                        </p>
-                    </div>
-                </div>
-            </div> -->
-        </div>
+  <section class="themed-section features" id="features">
+    <div class="section-content-right">
+      <h2 class="section-title">Key Features</h2>
+      <div class="content">
+        <ul>
+          <li>Unbreakable Security: Blockchain protects your data from unauthorized access and tampering.</li>
+          <li>Fast & Efficient: IPFS integration delivers rapid data retrieval for all your files.</li>
+          <li>Decentralized Storage: Say goodbye to centralized servers and embrace the secure and distributed storage of IPFS.</li>
+          <li>Privacy Guaranteed: Advanced encryption keeps your sensitive information safe & private.</li>
+          <li>Space-Saving Compression: Store more data with efficient compression algorithms.</li>
+        </ul>
+      </div>
     </div>
-</section>
-    <style>
-.cid-u4xsx0gyX1 {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: #000000;
-}
-.cid-u4xsx0gyX1 .social-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.cid-u4xsx0gyX1 .social-row .soc-item {
-  margin: 8px;
-}
-.cid-u4xsx0gyX1 .social-row .soc-item a:hover .mbr-iconfont,
-.cid-u4xsx0gyX1 .social-row .soc-item a:focus .mbr-iconfont {
-  background-color: #ffffff;
-}
-.cid-u4xsx0gyX1 .social-row .soc-item a .mbr-iconfont {
-  width: 72px;
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100%;
-  font-size: 32px;
-  /* background-color: #edefeb; */
-  background-color: linear-gradient(to right, #3498db, #8e44ad);
-  color: #000000;
-  transition: all 0.3s ease-in-out;
-}
-.cid-u4xsx0gyX1 .row-links {
-  width: 100%;
-  justify-content: center;
-}
-.cid-u4xsx0gyX1 .header-menu {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 0;
-  margin-bottom: 0;
-}
-.cid-u4xsx0gyX1 .header-menu li {
-  padding: 0 1rem 1rem 1rem;
-}
-.cid-u4xsx0gyX1 .header-menu li p {
-  margin: 0;
-}
-.cid-u4xsx0gyX1 .copyright {
-  margin-bottom: 0;
-  color: #ffffff;
-  text-align: center;
-}
-.cid-u4xsx0gyX1 .mbr-section-title {
-  color: #ffffff;
-}
+  </section>
 
-</style>
-<section class="footer3 cid-u4xsx0gyX1 bg" once="footers" id="footer-6-u4xsx0gyX1">
-    <div class="container">
-        <div class="row">
-            <div class="row-links">
-                <ul class="header-menu">
-                <li class="header-menu-item mbr-fonts-style display-5">
-                    <a href="#" class="text-white">Home</a>
-                  </li><li class="header-menu-item mbr-fonts-style display-5">
-                    <a href="#" class="text-white">About</a>
-                  </li><li class="header-menu-item mbr-fonts-style display-5">
-                    <a href="#" class="text-white">Terms</a>
-                  </li><li class="header-menu-item mbr-fonts-style display-5">
-                    <a href="#" class="text-white">Privacy</a>
-                  </li></ul>
+  <section class="testimonials">
+    <h2 class="section-title">What Our Users Say</h2>
+    <div class="testimonial-quote">
+      "FileCryp has transformed the way we store and manage our data. The security and speed are unmatched!"
+    </div>
+    <div class="testimonial-author">
+      - John Doe, Tech Innovator
+    </div>
+  </section>
+
+  <section class="neutral-section faq" id="faq">
+    <div class="section-content-left">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="content">
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <div class="card-header" id="headingOne">
+              <h5 class="card-title">
+                <a class="collapsed" data-toggle="collapse" href="#collapseOne" aria-expanded="false">How does FileCryp ensure file security?</a>
+              </h5>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#faqAccordion">
+              <div class="card-body">
+                FileCryp employs advanced encryption algorithms and decentralized storage on the blockchain to guarantee the utmost security for your files.
               </div>
-            <div class="col-12 mt-4">
-                <p class="mbr-fonts-style copyright display-7">
-                    © 2024 FileCryp. All Rights Reserved.
-                </p>
             </div>
+          </div>
+          <div class="accordion-item">
+            <div class="card-header" id="headingTwo">
+              <h5 class="card-title">
+                <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false">What is IPFS, and why is it used?</a>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+              <div class="card-body">
+                IPFS is a decentralized protocol for secure and efficient storage and sharing of files in FileCryp.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="card-header" id="headingThree">
+              <h5 class="card-title">
+                <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false">Can I access my files later?</a>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+              <div class="card-body">
+                Yes, users can decrypt their files anytime using provided keys as long as IPFS nodes have the content available.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="card-header" id="headingFour">
+              <h5 class="card-title">
+                <a class="collapsed" data-toggle="collapse" href="#collapseFour" aria-expanded="false">What file types are supported?</a>
+              </h5>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+              <div class="card-body">
+                Images, documents, archives, and many file types are supported for compression and upload.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="card-header" id="headingFive">
+              <h5 class="card-title">
+                <a class="collapsed" data-toggle="collapse" href="#collapseFive" aria-expanded="false">How does file compression work?</a>
+              </h5>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
+              <div class="card-body">
+                Files are compressed using efficient algorithms before encryption and upload to reduce size and improve speed.
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<script src="../static/assets/parallax/jarallax.js"></script>
+  <section class="themed-section contact" id="contact">
+    <div class="section-content-right">
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="content">
+        <p><strong>Phone:</strong> <a href="tel:+911234567890">+91 12345 67890</a></p>
+        <p><strong>Email:</strong> <a href="mailto:fileCryp@fileCryp.com">fileCryp@fileCryp.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>FileCryp</h4>
+        <p>Revolutionizing file storage with blockchain and IPFS technology.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#faq">FAQs</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-column">
+        <h4>Legal</h4>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 FileCryp. All Rights Reserved.</p>
+    </div>
+  </footer>
+
   <script src="../static/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../static/assets/dropdown/js/navbar-dropdown.js"></script>
-  <script src="../static/assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>
-  <script src="../static/assets/scrollgallery/scroll-gallery.js"></script>
-  <script src="../static/assets/smoothscroll/smooth-scroll.js"></script>
-  <script src="../static/assets/ytplayer/index.js"></script>
-  <script src="../static/assets/theme/js/script.js"></script>
-  <script src="../static/assets/formoid/formoid.min.js"></script>
-  
   <script>
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
 
-    (function(){
-      var animationInput = document.createElement('input');
-      animationInput.setAttribute('name', 'animation');
-      animationInput.setAttribute('type', 'hidden');
-      document.body.append(animationInput);
-    })();
-
+    document.getElementById('metamaskLoginBtn').addEventListener('click', async function() {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+          const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+          console.log('MetaMask login successful. Selected account:', accounts[0]);
+          window.location.href = '/upload_page';
+        } catch (error) {
+          console.error('MetaMask login error:', error.message);
+        }
+      } else {
+        alert('Please install MetaMask to use this feature.');
+      }
+    });
   </script>
 </body>
 </html>

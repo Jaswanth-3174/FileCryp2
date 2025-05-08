@@ -74,8 +74,8 @@ from web3 import Web3
 def store_hash(hash_to_store):
     try:
         ganache_url = "http://localhost:7545"
-        private_key = '0x51dca82f75e5da5f2631a365033592e603ea0af9b064f70106ef4b3aad5a79be'
-        account_address = '0xc57cf543b40F5E64432C692C8B3107572AE4603b'
+        private_key = '0x27d26ebc8923f44af6aea9348478108c8de6a0e1b69c77ddfe433eb5147f8e95'
+        account_address = '0x7004f194343BA2D54C8c32F6262c665a1FEAf593'
         contract_address = '0xe1F5A0215d04E5c0F59D9000523366DeDBF21729'
         contract_abi = [
             {

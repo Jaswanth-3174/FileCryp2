@@ -1,106 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload and Download</title>
-    <style>
-        /* Your provided styles */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(to right, #3498db, #8e44ad);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .left-container,
-        .right-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 45%; /* Adjust the width as needed */
-            padding: 20px;
-            border: 1px solid #000000; /* Optional: Add a border for better separation */
-        }
-
-        h1 {
-            color: #3498db;
-            margin-bottom: 10px;
-        }
-
-        p {
-            color: #000;
-            margin-bottom: 20px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background: linear-gradient(to right, #3498db, #8e44ad);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .button:hover {
-            background: linear-gradient(to right, #2980b9, #9b59b6);
-        }
-
-        /* Additional styles for the upload and download section */
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FileCryp</title>
+  <style>
+    :root {
+      --violet-gradient: linear-gradient(to right top, #a18cd1, #fbc2eb);
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      line-height: 1.6;
+    }
+    .upload-download,
+    .features-extended,
+    .how-it-works,
+    .faq,
+    .testimonials {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 2rem;
+    }
+    .upload-download {
+      display: flex;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.95);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .upload-download .section {
+      flex: 1;
+      margin: 0 1rem;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .upload-download .section h3 {
+      color: #6a11cb;
+    }
+    .upload-download .section p {
+      color: #333;
+    }
+    .upload-download .section button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: var(--violet-gradient);
+      color: white;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .features-extended h2,
+    .how-it-works h2,
+    .faq h2,
+    .testimonials h2 {
+      text-align: center;
+      color: #6a11cb;
+      margin-bottom: 2rem;
+    }
+    .features-extended ul,
+    .faq ul {
+      list-style: none;
+      padding: 0;
+    }
+    .features-extended li,
+    .faq li {
+      background: white;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-left: 5px solid #6a11cb;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    .how-it-works ol {
+      padding-left: 1.5rem;
+    }
+    .faq summary {
+      cursor: pointer;
+      font-weight: bold;
+      margin: 1rem 0;
+    }
+    .testimonials {
+      background: var(--violet-gradient);
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+    }
+    .testimonial {
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .testimonial strong {
+      display: block;
+      margin-top: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      background: var(--violet-gradient);
+      color: white;
+      padding: 1rem;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="left-container">
-            <h1>Store Files</h1>
-            <p>Experience decentralized content storage and upload with IPFS. Store your data securely and retrieve it from anywhere in the world.</p>
-            <button class="button" onclick="redirectToUpload()">Upload</button>
-
-        </div>
-
-        <div class="right-container">
-            <h1>Download Files</h1>
-           <p> Retrieve your content seamlessly from IPFS. Enter the Transaction of your stored data and experience decentralized retrieval </p>
-            <!-- Download button -->
-            <button class="button" onclick="redirectToDownloadPage()">Download</button>
-        </div>
+  <div class="upload-download">
+    <div class="section">
+      <h3>Store Files</h3>
+      <p>Experience decentralized storage and upload files securely using IPFS. Protect your data with blockchain technology and access it globally.</p>
+      <button onclick="window.location.href='uploadFiles.html'">Upload</button>
     </div>
+    <div class="section">
+      <h3>Download Files</h3>
+      <p>Retrieve your files anytime from IPFS using the transaction or hash. Reliable, fast, and secure file access from anywhere in the world.</p>
+      <button onclick="window.location.href='/downloadPage'">Download</button>
+    </div>
+  </div>
 
-    <script>
-        function redirectToUpload() {
-            window.location.href = "uploadFiles.html";
-        }
+  <section class="features-extended">
+    <h2>Why Choose FileCryp?</h2>
+    <ul>
+      <li><strong>Secure by Design:</strong> Built on blockchain and IPFS for tamper-proof data storage.</li>
+      <li><strong>High Speed:</strong> Lightning-fast uploads and downloads globally.</li>
+      <li><strong>File Compression:</strong> Save space using advanced compression algorithms.</li>
+    </ul>
+  </section>
 
-        function redirectToDownloadPage() {
-            window.location.href = "/downloadPage";  // Adjust the path as needed
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <ol>
+      <li>Connect MetaMask wallet to authenticate.</li>
+      <li>Select a file for compression, encryption, and IPFS storage.</li>
+      <li>Access it any time using your wallet and file hash.</li>
+    </ol>
+  </section>
+
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <ul>
+      <li><strong>What is FileCryp?</strong><br>A decentralized platform using IPFS and blockchain.</li>
+      <li><strong>Is it secure?</strong><br>Yes, we use end-to-end encryption and IPFS decentralization.</li>
+    </ul>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Users Say</h2>
+    <div class="testimonial">
+      “I use FileCryp to store important academic files. Works like magic!”<br>
+      <strong>— Priya, Student</strong>
+    </div>
+    <div class="testimonial">
+      “Effortless and private. Blockchain-powered file handling is the future.”<br>
+      <strong>— Aryan, Freelancer</strong>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2024 FileCryp. All Rights Reserved. | <a href="#about" style="color: white;">About</a> | Terms | Privacy
+  </footer>
+
+  <script>
+    const btn = document.getElementById('metamaskLoginBtn');
+    if (btn) {
+      btn.addEventListener('click', async function () {
+        if (typeof window.ethereum !== 'undefined') {
+          try {
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+            console.log('Logged in as:', accounts[0]);
+            window.location.href = '/upload_page';
+          } catch (err) {
+            console.error('MetaMask login failed:', err);
+          }
+        } else {
+          alert('Please install MetaMask to use this feature.');
         }
-    </script>
+      });
+    }
+  </script>
 </body>
 </html>
